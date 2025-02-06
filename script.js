@@ -11,6 +11,7 @@ function checkAnswers() {
     const form = document.getElementById('quiz-form');
     const resultsDiv = document.getElementById('results');
     const username = document.getElementById('username').value;
+    const account = document.getElementById('account').value;
     const userAnswers = {};
 
     for (let question in correctAnswers) {
@@ -25,18 +26,20 @@ function checkAnswers() {
                 form.querySelector(`input[name="${question}"]:checked`).parentElement.style.color = 'red';
                 form.querySelector(`input[name="${question}"]:checked`).parentElement.innerHTML += ' - Incorrecto';
             }
+        } else {
+            userAnswers[question] = 'No contestada';
         }
     }
 
     resultsDiv.innerHTML = `Hola, ${username}. Tu puntuación es: ${score} de 5`;
 
     // Guarda las respuestas del usuario en el almacenamiento local
-    saveUserAnswers(username, userAnswers, score);
+    saveUserAnswers(username, account, userAnswers, score);
 }
 
-function saveUserAnswers(username, answers, score) {
+function saveUserAnswers(username, account, answers, score) {
     const userResponses = JSON.parse(localStorage.getItem('userResponses')) || [];
-    userResponses.push({ username, answers, score });
+    userResponses.push({ username, account, answers, score });
     localStorage.setItem('userResponses', JSON.stringify(userResponses));
 }
 
@@ -51,7 +54,7 @@ function showResults() {
         userResponses.forEach(response => {
             const resultHTML = `
                 <div class="saved-result">
-                    <h3>Usuario: ${response.username}</h3>
+                    <h3>Usuario: ${response.username} (Cuenta: ${response.account})</h3>
                     <p>Puntuación: ${response.score} de 5</p>
                     <ul>
                         ${Object.entries(response.answers).map(([question, answer]) => `<li>${question}: ${answer}</li>`).join('')}

@@ -39,3 +39,26 @@ function saveUserAnswers(username, answers, score) {
     userResponses.push({ username, answers, score });
     localStorage.setItem('userResponses', JSON.stringify(userResponses));
 }
+
+function showResults() {
+    const userResponses = JSON.parse(localStorage.getItem('userResponses')) || [];
+    const savedResultsDiv = document.getElementById('saved-results');
+    savedResultsDiv.innerHTML = '';
+
+    if (userResponses.length === 0) {
+        savedResultsDiv.innerHTML = 'No hay resultados guardados.';
+    } else {
+        userResponses.forEach(response => {
+            const resultHTML = `
+                <div class="saved-result">
+                    <h3>Usuario: ${response.username}</h3>
+                    <p>Puntuación: ${response.score} de 5</p>
+                    <ul>
+                        ${Object.entries(response.answers).map(([question, answer]) => `<li>${question}: ${answer}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            savedResultsDiv.innerHTML += resultHTML;
+        });
+    }
+}

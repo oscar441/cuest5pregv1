@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario de Sumas</title>
+    <title>Formulario de Cuestionario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Cuestionario de Sumas</h1>
         <form id="quiz-form">
+            <div class="user-info">
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
             <div class="question">
                 <h2>¿Cuánto es 2 + 3?</h2>
                 <label><input type="radio" name="q1" value="4"> 4</label><br>

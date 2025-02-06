@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Sumas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cuestionario de Sumas</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <h2>¿Cuánto es 2 + 3?</h2>
+                <label><input type="radio" name="q1" value="4"> 4</label><br>
+                <label><input type="radio" name="q1" value="5"> 5</label><br>
+                <label><input type="radio" name="q1" value="6"> 6</label><br>
+                <label><input type="radio" name="q1" value="7"> 7</label>
+            </div>
+            <div class="question">
+                <h2>¿Cuánto es 1 + 6?</h2>
+                <label><input type="radio" name="q2" value="6"> 6</label><br>
+                <label><input type="radio" name="q2" value="7"> 7</label><br>
+                <label><input type="radio" name="q2" value="8"> 8</label><br>
+                <label><input type="radio" name="q2" value="9"> 9</label>
+            </div>
+            <div class="question">
+                <h2>¿Cuánto es 3 + 5?</h2>
+                <label><input type="radio" name="q3" value="7"> 7</label><br>
+                <label><input type="radio" name="q3" value="8"> 8</label><br>
+                <label><input type="radio" name="q3" value="9"> 9</label><br>
+                <label><input type="radio" name="q3" value="10"> 10</label>
+            </div>
+            <div class="question">
+                <h2>¿Cuánto es 4 + 2?</h2>
+                <label><input type="radio" name="q4" value="5"> 5</label><br>
+                <label><input type="radio" name="q4" value="6"> 6</label><br>
+                <label><input type="radio" name="q4" value="7"> 7</label><br>
+                <label><input type="radio" name="q4" value="8"> 8</label>
+            </div>
+            <div class="question">
+                <h2>¿Cuánto es 5 + 3?</h2>
+                <label><input type="radio" name="q5" value="7"> 7</label><br>
+                <label><input type="radio" name="q5" value="8"> 8</label><br>
+                <label><input type="radio" name="q5" value="9"> 9</label><br>
+                <label><input type="radio" name="q5" value="10"> 10</label>
+            </div>
+            <button type="button" onclick="checkAnswers()">Enviar</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
